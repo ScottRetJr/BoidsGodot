@@ -16,7 +16,7 @@ var flockMates = []
 #the creatures rotation_degrees to a random value between 0.0 and 359.9.
 func _ready():
 	randomize()
-	rot = rand_range(0.0, 359.9)
+	rot = rand_range(minRot, maxRot)
 	self.rotation_degrees = rot
 
 #The _physics_process(delta) function is ran every frame, with the delta 
@@ -68,7 +68,7 @@ func findFlockAvgHeading():
 
 #Cohesion method. Similar to the above method, but calculates the average 
 #position of all creatures within 300 pixels. The creatures then attempt to
-#steer themselves towards. I beleive this method needs revision.
+#steer themselves towards that average position.
 func findFlockCenter(): 
 	var avgPos = Vector2()
 	for boid in flockMates:
