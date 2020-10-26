@@ -76,13 +76,9 @@ func findFlockCenter():
 	if flockMates.size() != 0:
 		avgPos = avgPos / flockMates.size()
 	
-	if self.position.x >= avgPos.x && self.position.y >= avgPos.y:
+	if self.position.x >= avgPos.x:
 		self.rotation_degrees -= turnSpeed
-	elif self.position.x >= avgPos.x && self.position.y < avgPos.y:
-		self.rotation_degrees -= turnSpeed
-	elif self.position.x < avgPos.x && self.position.y >= avgPos.y:
-		self.rotation_degrees += turnSpeed
-	elif self.position.x < avgPos.x && self.position.y < avgPos.y:
+	elif self.position.x < avgPos.x:
 		self.rotation_degrees += turnSpeed
 
 
